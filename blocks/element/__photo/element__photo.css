@@ -1,0 +1,4 @@
+.element__photo {
+    object-fit: contain;
+    display: block;
+}
