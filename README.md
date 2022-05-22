@@ -17,5 +17,5 @@
 
 **Ссылка на проект**
 
-* Посмотреть проект можно по [ссылке](https://ilina-malina.github.io/mesto/index.html)
+* Посмотреть проект можно по [ссылке](http://ilina-malina.github.io/mesto/index.html)
 
