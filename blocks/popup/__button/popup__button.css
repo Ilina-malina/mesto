@@ -12,6 +12,7 @@
     line-height: 17px;
     padding: 0;
     cursor: pointer;
+    border-radius: 2px;
 }
 
 @media screen and (min-width:768px) {
