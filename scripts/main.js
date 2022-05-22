@@ -28,7 +28,6 @@ function formSubmitHandler (evt) {
 
     profileName.textContent = nameInputValue;
     profileDescription.textContent = jobInputValue;
-    
     togglePopup();
 }
 
