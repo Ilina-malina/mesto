@@ -1,5 +1,6 @@
 .profile__info {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap; 
@@ -11,9 +12,14 @@
 @media screen and (min-width:768px) {
     .profile__info {
         padding-left: 0;
+        flex-direction: row;
         min-width: 336px;
-        margin-top: 0;
-        margin-left: -200px;
         justify-content: flex-start;
+    }
+}
+
+@media screen and (width: 1280px) {
+    .profile__info {
+        margin-left: -200px;
     }
 }
