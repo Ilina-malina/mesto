@@ -18,6 +18,7 @@
     .profile__add-button {
         width: 150px;
         margin-right: 0;
+        background-size: 15%;
+        margin-left: auto;
     }
 }
-

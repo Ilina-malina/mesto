@@ -4,12 +4,12 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    color: #000000;
     border: 0;
-    border-bottom: 1px solid #000000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     width: 238px;
     min-height: 27px;
     overflow: hidden;
-    white-space: no-wrap;
     text-overflow: ellipsis;
     box-sizing: border-box;
     padding: 0;

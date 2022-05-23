@@ -4,22 +4,16 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 26px auto 36px;
     max-width: 300px;
-    margin-top: 22px;
+    margin: 22px auto 36px;
 }
 
 @media screen and (min-width:768px) {
     .profile__info {
-        padding-left: 0;
+        margin: 0;
         flex-direction: row;
         min-width: 336px;
         justify-content: flex-start;
-    }
-}
-
-@media screen and (width: 1280px) {
-    .profile__info {
-        margin-left: -200px;
+        margin-left: 30px;
     }
 }

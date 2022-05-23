@@ -3,6 +3,7 @@
     right: 0;
     top: -36px;
     background-image: url('../../../images/Close-button.svg');
+    background-repeat: no-repeat;
     background-size: cover;
     background-color: transparent;
     width: 20px;
