@@ -13,11 +13,14 @@
     text-overflow: ellipsis;
     box-sizing: border-box;
     padding: 0;
-    
 }
 
 .popup__input:first-of-type {
     margin-bottom: 30px;
+}
+
+.popup__input:focus {
+    color: red;
 }
 
 @media screen and (min-width:768px) {

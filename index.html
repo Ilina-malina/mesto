@@ -11,73 +11,73 @@
     <img class="header__logo" src="./images/logo.svg" alt="Логотип">
   </header>
   <main class="main">
-    <div class="profile">        
+    <section class="profile">        
       <img class="profile__image" src="./images/Kusto.svg" alt="Фотография Жака-Ив Кусто">
       <div class="profile__info">
         <div class="profile__container">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button" type="button"></button>
+          <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
         </div>
         <p class="profile__subscribe">Исследователь океана</p>
       </div>
-      <button class="profile__add-button" type="button"></button>
-    </div>
-    <div class="elements">
-      <div class="element">
-        <img class="element__photo" src="./images/kirill-pershin-1088404-unsplash.png" alt="Фотография">
+      <button class="profile__add-button" type="button" aria-label="Добавить информацию"></button>
+    </section>
+    <section class="elements">
+      <article class="element">
+        <img class="element__photo" src="./images/kirill-pershin-1088404-unsplash.png" alt="Сентинский храм">
         <div class="element__description">
           <h2 class="element__title">Карачаевск</h2>
-          <button class="element__like-button element__like-button_active" type="button"></button>
+          <button class="element__like-button element__like-button_active" type="button" aria-label="Закат солнца"></button>
         </div>
-      </div>
-      <div class="element">
-        <img class="element__photo" src="./images/kirill-pershin-1404681-unsplash.png" alt="Фотография">
+      </article>
+      <article class="element">
+        <img class="element__photo" src="./images/kirill-pershin-1404681-unsplash.png" alt="Домбай">
         <div class="element__description">
           <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__like-button element__like-button_active" type="button"></button>
+          <button class="element__like-button element__like-button_active" type="button" aria-label="Нравится"></button>
         </div>
-      </div>
-      <div class="element">
+      </article>
+      <article class="element">
+        <img class="element__photo" src="./images/kirill-pershin-1556355-unsplash.png" alt="Закат солнца">
+        <div class="element__description">
+          <h2 class="element__title">Домбай</h2>
+          <button class="element__like-button element__like-button_active" type="button" aria-label="Нравится"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img class="element__photo" src="./images/kirill-pershin-1404681-unsplash.png" alt="Домбай">
+        <div class="element__description">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button class="element__like-button element__like-button_active" type="button" aria-label="Нравится"></button>
+        </div>
+      </article>
+      <article class="element">
         <img class="element__photo" src="./images/kirill-pershin-1556355-unsplash.png" alt="Фотография">
         <div class="element__description">
           <h2 class="element__title">Домбай</h2>
-          <button class="element__like-button element__like-button_active" type="button"></button>
+          <button class="element__like-button element__like-button_active" type="button" aria-label="Нравится"></button>
         </div>
-      </div>
-      <div class="element">
-        <img class="element__photo" src="./images/kirill-pershin-1404681-unsplash.png" alt="Фотография">
-        <div class="element__description">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__like-button element__like-button_active" type="button"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__photo" src="./images/kirill-pershin-1556355-unsplash.png" alt="Фотография">
-        <div class="element__description">
-          <h2 class="element__title">Домбай</h2>
-          <button class="element__like-button element__like-button_active" type="button"></button>
-        </div>
-      </div>
-      <div class="element">
-        <img class="element__photo" src="./images/kirill-pershin-1088404-unsplash.png" alt="Фотография">
+      </article>
+      <article class="element">
+        <img class="element__photo" src="./images/kirill-pershin-1088404-unsplash.png" alt="Сентинский храм">
         <div class="element__description">
           <h2 class="element__title">Карачаевск</h2>
-          <button class="element__like-button element__like-button_active" type="button"></button>
+          <button class="element__like-button element__like-button_active" type="button" aria-label="Нравится"></button>
         </div>
-      </div>
-    </div>
+      </article>
+    </section>
   </main>
   <footer class="footer">
-    <p class="footer__copyright">© 2020 Mesto Russia</p>
+    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
   <div class="popup">
     <div class="popup__container">
-      <button class="popup__close" type="button"></button>
+      <button class="popup__close" type="button" aria-label="Закрыть"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" name="profile-form">
-        <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Введите Ваше имя">  
-        <input class="popup__input popup__input_type_description" type="text" name="description" placeholder="Укажите род занятий">
-        <button class="popup__button" type="submit">Сохранить</button>
+        <input class="popup__input popup__input_type_name" required type="text" name="name" placeholder="Введите Ваше имя">  
+        <input class="popup__input popup__input_type_description" required type="text" name="description" placeholder="Укажите род занятий">
+        <button class="popup__button" type="submit" aria-label="Сохранить">Сохранить</button>
       </form>
     </div>
   </div>

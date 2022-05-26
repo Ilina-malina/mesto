@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 14px;
+    align-items: baseline;
 }
 
 @media screen and (min-width:768px) {

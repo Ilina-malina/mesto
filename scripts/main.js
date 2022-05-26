@@ -14,24 +14,17 @@ function formSubmitHandler (evt) {
 
     profileName.textContent = nameInputValue;
     profileDescription.textContent = jobInputValue;
-    popup.classList.remove("popup__opened");
+    popup.classList.remove("popup_opened");
 }
 
 openPopup.addEventListener("click", function () {
-    popup.classList.add("popup__opened");
     nameInput.value = profileName.textContent;
     jobInput.value = profileDescription.textContent;
+    popup.classList.add("popup_opened");
 });
 
 closePopup.addEventListener("click", function () {
-    popup.classList.remove("popup__opened");
-});
-
-popup.addEventListener("click", function (event) {
-    if (event.target === event.currentTarget) {
-        popup.classList.remove("popup__opened");
-        
-    }
+    popup.classList.remove("popup_opened");
 });
 
 formElement.addEventListener('submit', formSubmitHandler);

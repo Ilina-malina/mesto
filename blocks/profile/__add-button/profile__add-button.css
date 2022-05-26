@@ -8,10 +8,12 @@
     border-color: white;
     cursor: pointer;
     border-radius: 2px;
+    border: 2px solid #FFFFFF;
 }
 
 .profile__add-button:hover {
     opacity: .6;
+    transition: .3s;
 }
 
 @media screen and (min-width:768px) {
