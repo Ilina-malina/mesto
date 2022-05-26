@@ -8,9 +8,12 @@
 
 @media screen and (min-width:768px) {
     .elements {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
         justify-content: center;
         flex-wrap: wrap;
-        max-width: 900px;
+        max-width: 880px;
+        row-gap: 20px;
+        column-gap: 17px;
     }
 }
