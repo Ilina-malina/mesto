@@ -9,9 +9,6 @@
     border: white solid 1px;
     padding: 0;
     cursor: pointer;
-    position: absolute;
-    right: -28px;
-    top: 10px;
 }
 
 .profile__edit-button:hover {
@@ -23,6 +20,6 @@
     .profile__edit-button {
         width: 24px;
         height: 24px;
-        right: -40px;
+        margin-left: 18px;
     }
 }

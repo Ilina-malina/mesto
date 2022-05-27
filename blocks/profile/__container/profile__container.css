@@ -1,14 +1,15 @@
 .profile__container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     margin-bottom: 14px;
-    position: relative;
     box-sizing: border-box;
+    padding-left: 25px;
 }
 
 @media screen and (min-width:768px) {
     .profile__container {
         margin-bottom: 16px;
+        padding-left: 0;
     }
 }
