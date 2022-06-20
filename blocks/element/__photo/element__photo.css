@@ -1,4 +1,6 @@
 .element__photo {
-    object-fit: contain;
+    object-fit: fill;
+    height: 282px;
+    width: 282px;
     display: block;
 }

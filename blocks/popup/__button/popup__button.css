@@ -3,7 +3,7 @@
     height: 46px;
     background-color: black;
     color: white;
-    margin: 45px auto 25px;
+    margin: 45px 0 25px;
     border: 0;
     font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
@@ -26,6 +26,6 @@
         height: 50px;
         font-size: 18px;
         line-height: 22px;
-        margin: 48px auto 37px;
+        margin: 48px 0 37px;
     }
 }
