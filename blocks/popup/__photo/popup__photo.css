@@ -1,5 +1,3 @@
 .popup__photo {
     object-fit: contain;
-    max-height: 75vw;
-    max-width: 75vw;
 }
