@@ -4,3 +4,8 @@
     width: 282px;
     display: block;
 }
+
+.element__photo:hover {
+    opacity: .5;
+    transition: .3s;
+}

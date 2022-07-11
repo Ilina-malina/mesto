@@ -2,4 +2,6 @@
     object-fit: contain;
     display: block;
     height: auto;
+    max-width: 75vh;
+    max-height: 75vh;
 }
