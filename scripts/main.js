@@ -28,11 +28,13 @@ const popupPhotoTitle = popupShowPic.querySelector(".popup__photo-title");
 
 // Функции открытия и закрытия попапов
 function openPopup(popup) {
+  window.addEventListener('keydown', closePopupByEscBtn);
   popup.classList.add('popup_opened');
 }; 
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  window.removeEventListener('keydown', closePopupByEscBtn);
 };
 
 // Добавление карточек
@@ -88,15 +90,20 @@ function editFormSubmitHandler (evt) {
 popupProfileOpenButton.addEventListener("click", function () {
     nameInput.value = profileName.textContent;
     jobInput.value = profileDescription.textContent;
+
     openPopup(popupProfile);
 });
 
 popupProfileCloseButton.addEventListener("click", function () {
     closePopup(popupProfile);
 });
+popupProfile.addEventListener('click', function(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupProfile);
+  };
+})
 
 editFormElement.addEventListener('submit', editFormSubmitHandler);
-
 
 // Открытие и закрытие второго попапа
 popupAddPlaceOpenButton.addEventListener("click", function () {
@@ -106,6 +113,11 @@ popupAddPlaceOpenButton.addEventListener("click", function () {
 popupAddPlaceCloseButton.addEventListener("click", function () {
   closePopup(popupAddPlace);
 });
+popupAddPlace.addEventListener('click', function(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupAddPlace);
+  };
+})
 
 const addFormSubmitHandler = (evt) => {
   evt.preventDefault();
@@ -129,3 +141,14 @@ addFormElement.addEventListener('submit', addFormSubmitHandler);
 popupShowPicCloseButton.addEventListener("click", function () {
   closePopup(popupShowPic);
 });
+popupShowPic.addEventListener('click', function(evt) {
+  if (evt.target === evt.currentTarget) {
+    closePopup(popupShowPic);
+  }
+})
+
+function closePopupByEscBtn(evt) {
+  if (evt.keyCode === 27) {
+    closePopup(document.getElementsByClassName("popup_opened")[0]);
+  };
+}
