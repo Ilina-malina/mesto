@@ -1,20 +1,16 @@
-const formProfile = {
-  form: '.popup__form[name="profile-form"]',
-  button: ".popup__submit-button",
-  buttonDisabled: 'popup__submit-button_disadled'
-};
-
-const formPlace = {
-  form: '.popup__form[name="add-place__form"]',
+const forms = {
+  form: '.popup__form',
   button: ".popup__submit-button",
   buttonDisabled: 'popup__submit-button_disadled'
 };
 
 function enableValidation(config) {
   // Находим форму
-  const form = document.querySelector(config.form);
-  form.addEventListener("submit", handleFormSubmit);
-  form.addEventListener("input", (event) => handleFormInput(event, config));
+  const form = Array.from(document.querySelectorAll(config.form));
+  form.forEach((form) => {
+    form.addEventListener("submit", handleFormSubmit);
+    form.addEventListener("input", (event) => handleFormInput(event, config));
+    });
 }
 
 function handleFormSubmit(event) {
@@ -77,5 +73,4 @@ function setSubmitButtonState(form, config) {
   }
 }
 
-enableValidation(formProfile);
-enableValidation(formPlace);
+enableValidation(forms);

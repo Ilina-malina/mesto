@@ -23,22 +23,22 @@
       <button class="profile__add-button" type="button" aria-label="Добавить информацию"></button>
     </section>
     <section class="elements">
-      <template id="cards">
-        <article class="element">
-          <img class="element__photo" src="./images/kirill-pershin-1088404-unsplash.png" alt="Сентинский храм">
-          <button class="element__delete-button" type="button" aria-label="Удалить"></button>
-          <div class="element__description">
-            <h2 class="element__title">Карачаевск</h2>
-            <button class="element__like-button" type="button" aria-label="Нравится"></button>
-          </div>
-        </article>
-      </template>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
 
+  <template id="card">
+    <article class="element">
+      <img class="element__photo" src="./images/kirill-pershin-1088404-unsplash.png" alt="Сентинский храм">
+      <button class="element__delete-button" type="button" aria-label="Удалить"></button>
+      <div class="element__description">
+        <h2 class="element__title">Карачаевск</h2>
+        <button class="element__like-button" type="button" aria-label="Нравится"></button>
+      </div>
+    </article>
+  </template>
 
   <div class="popup popup_type_profile">
     <div class="popup__container">
@@ -54,7 +54,6 @@
     </div>
   </div> 
 
-
   <div class="popup popup_type_place">
     <div class="popup__container">
       <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
@@ -68,7 +67,6 @@
       </form>
     </div>
   </div>
-  
 
   <div class="popup popup_type_show-picture">
     <div class="popup__content">
@@ -77,7 +75,6 @@
       <h2 class="popup__photo-title">Карачаевск</h2>
     </div>
   </div> 
-
 
   <script src="./scripts/initialData.js"></script>
   <script src="./scripts/main.js"></script>
