@@ -1,7 +1,7 @@
-const forms = {
-  form: '.popup__form',
+const config = {
+  form: ".popup__form",
   button: ".popup__submit-button",
-  buttonDisabled: 'popup__submit-button_disadled'
+  buttonDisabled: "popup__submit-button_disadled",
 };
 
 function enableValidation(config) {
@@ -10,7 +10,7 @@ function enableValidation(config) {
   form.forEach((form) => {
     form.addEventListener("submit", handleFormSubmit);
     form.addEventListener("input", (event) => handleFormInput(event, config));
-    });
+  });
 }
 
 function handleFormSubmit(event) {
@@ -61,6 +61,7 @@ function showFieldError(input) {
 }
 
 function setSubmitButtonState(form, config) {
+  
   const button = form.querySelector(config.button);
   const isValid = form.checkValidity();
 
@@ -73,4 +74,4 @@ function setSubmitButtonState(form, config) {
   }
 }
 
-enableValidation(forms);
+enableValidation(config);
