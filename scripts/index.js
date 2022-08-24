@@ -1,6 +1,12 @@
 import {Card} from './Card.js';
+import { FormValidator } from './FormValidator.js';
 
 const ESC_KEY_CODE = 27;
+const config = {
+  form: ".popup__form",
+  button: ".popup__submit-button",
+  buttonDisabled: "popup__submit-button_disadled",
+};
 const closeButton = ".popup__close-button";
 
 // Константы первого попапа
@@ -11,8 +17,7 @@ const profileDescription = document.querySelector(".profile__subscribe");
 const formEditElement = popupProfile.querySelector(".popup__form");
 const nameInput = formEditElement.querySelector(".popup__input_type_name");
 const jobInput = formEditElement.querySelector(
-  ".popup__input_type_description"
-);
+  ".popup__input_type_description");
 
 // Константы второго попапа
 const popupAddPlace = document.querySelector(".popup_type_place");
@@ -104,7 +109,8 @@ formEditElement.addEventListener("submit", editFormSubmitHandler);
 // Открытие и закрытие второго попапа
 popupAddPlaceOpenButton.addEventListener("click", function () {
   openPopup(popupAddPlace);
-  setSubmitButtonState(popupAddPlace.querySelector(config.form), config);
+  popupAddPlace.querySelector(".popup__submit-button").setAttribute("disabled", true);
+  popupAddPlace.querySelector(".popup__submit-button").classList.add("popup__submit-button_disadled");
 });
 
 const addFormSubmitHandler = (evt) => {
@@ -116,5 +122,11 @@ const addFormSubmitHandler = (evt) => {
   renderCard(newCard);
   closePopup(popupAddPlace);  
 };
+
+const profileFormValidator = new FormValidator(config, formEditElement);
+profileFormValidator.enableValidation();
+
+const addFormValidator = new FormValidator(config, formAddElement);
+addFormValidator.enableValidation();
 
 formAddElement.addEventListener("submit", addFormSubmitHandler);
