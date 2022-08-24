@@ -1,7 +1,5 @@
 export class FormValidator {
     constructor (config, formElement) {
-        this._config = config;
-        this._form = config.form;
         this._formElement = formElement;
         this._button = this._formElement.querySelector(config.button);
         this._buttonDisabled = config.buttonDisabled;
@@ -16,11 +14,10 @@ export class FormValidator {
     _handleFormSubmit(event) {
         event.preventDefault();
         // Определяем валидность формы
-        this._formElement = event.currentTarget;
         const isValid = this._formElement.checkValidity();
       
         if (isValid) {
-          this._form.reset();
+          clearForm();
         }
     }
 
@@ -32,7 +29,7 @@ export class FormValidator {
         // Показываем ошибки
         this._showFieldError(input);
         // Деактивируем кнопку
-        this._setSubmitButtonState();
+        this.setSubmitButtonState();
     }
 
     _setCustomError(input) {
@@ -59,7 +56,7 @@ export class FormValidator {
         span.textContent = input.validationMessage;
     }
       
-    _setSubmitButtonState() {
+    setSubmitButtonState() {
         const isValid = this._formElement.checkValidity();
       
         if (isValid) {
@@ -69,5 +66,9 @@ export class FormValidator {
           this._button.setAttribute("disabled", true);
           this._button.classList.add(this._buttonDisabled);
         }
+    }
+
+    clearForm() {
+      this._formElement.reset();
     }
 }

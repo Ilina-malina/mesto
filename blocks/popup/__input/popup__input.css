@@ -15,10 +15,6 @@
     padding: 0;
 }
 
-.popup__input:last-of-type {
-    margin-top: 30px;
-}
-
 .popup__input:focus {
     color: blue;
 }

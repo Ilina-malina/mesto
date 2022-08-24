@@ -1,3 +1,4 @@
+import {initialCards} from './initialData.js';
 import {Card} from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
@@ -23,28 +24,31 @@ const jobInput = formEditElement.querySelector(
 const popupAddPlace = document.querySelector(".popup_type_place");
 const popupAddPlaceOpenButton = document.querySelector(".profile__add-button");
 const formAddElement = popupAddPlace.querySelector(".popup__form");
+const placeInput = popupAddPlace.querySelector(".popup__input_type_place");
+const linkInput = popupAddPlace.querySelector(".popup__input_type_link");
 
 // Константы третьего попапа
 const popupShowPic = document.querySelector(".popup_type_show-picture");
 const popupPic = popupShowPic.querySelector(".popup__photo");
 const popupPhotoTitle = popupShowPic.querySelector(".popup__photo-title");
+const cardContainer = document.querySelector(".elements");
+
 
 // Функции открытия и закрытия попапов
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupByEscBtn);
   popup.querySelector(closeButton).addEventListener("click", closePopupByX);
-  popup.addEventListener("click", closePopupByOverlay);
+  popup.addEventListener("mousedown", closePopupByOverlay);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener("keydown", closePopupByEscBtn);
   popup.querySelector(closeButton).removeEventListener("click", closePopupByX);
-  popup.removeEventListener("click", closePopupByOverlay);
-  if (popup !== popupShowPic) {
-    clearForm(popup);
-  }
+  popup.removeEventListener("mousedown", closePopupByOverlay);
+  profileFormValidator.clearForm();
+  addFormValidator.clearForm();
 }
 
 function closePopupByEscBtn(evt) {
@@ -76,13 +80,12 @@ const openPic = function (name, link) {
 };
 
 function renderCard(card) {
-  const cardElement = card.generateCard(openPic);
-  const cardContainer = document.querySelector(".elements");
+  const cardElement = card.getCard(openPic);
   cardContainer.prepend(cardElement);
 }
 
 initialCards.forEach((item) => {
-  const card = new Card(item.name, item.link);
+  const card = new Card(item.name, item.link, 'card');
   renderCard(card);
 });
 
@@ -109,16 +112,13 @@ formEditElement.addEventListener("submit", editFormSubmitHandler);
 // Открытие и закрытие второго попапа
 popupAddPlaceOpenButton.addEventListener("click", function () {
   openPopup(popupAddPlace);
-  popupAddPlace.querySelector(".popup__submit-button").setAttribute("disabled", true);
-  popupAddPlace.querySelector(".popup__submit-button").classList.add("popup__submit-button_disadled");
+  addFormValidator.setSubmitButtonState();
 });
 
 const addFormSubmitHandler = (evt) => {
   evt.preventDefault();
-  const placeInput = popupAddPlace.querySelector(".popup__input_type_place");
-  const linkInput = popupAddPlace.querySelector(".popup__input_type_link");
 
-  const newCard = new Card(placeInput.value, linkInput.value);
+  const newCard = new Card(placeInput.value, linkInput.value, 'card');
   renderCard(newCard);
   closePopup(popupAddPlace);  
 };

@@ -1,42 +1,39 @@
 export class Card {
-    constructor(text, image) {
+    constructor(text, image, selector) {
         this._text = text;
         this._image = image;
-        this._element = this._getCard();
+        this._element = this._generateCard(selector);
+        this._imageElement = this._element.querySelector(".element__photo");
+        this._textElement = this._element.querySelector(".element__title");
+        this._likeButton = this._element.querySelector(".element__like-button");
+        this._deleteBtn = this._element.querySelector(".element__delete-button");  
     }
 
-    _getCard = () => {
-        const templateCard = document.getElementById("card").content.cloneNode(true);
+    _generateCard = (selector) => {
+        this._element = document.getElementById(selector).content.cloneNode(true);
 
-        return templateCard;
-    }
-
-    generateCard = (openPic) => {
-        this._element.querySelector(".element__like-button").addEventListener('click', (e) => {
-            this._handleLikeButtonClick(e);
-        });
-
-        this._element.querySelector(".element__delete-button").addEventListener('click', (e) => {
-            this._handleDelete(e);
-        });
-
-        this._element.querySelector(".element__photo").src = this._image;
-        this._element.querySelector(".element__title").textContent = this._text;
-        
-        this._element.querySelector(".element__photo").addEventListener("click", () => {
-            openPic(this._text, this._image);
-        });
-       
         return this._element;
     }
 
-    _setEventListeners = () => {
-        this.likeButton.addEventListener('click', () => {
-            this._handleLikeButtonClick();
+    getCard = (openPic) => {
+        this._imageElement.src = this._image;
+        this._textElement.textContent = this._text;
+        this._imageElement.alt = this._text;
+        this._setEventListeners(openPic);
+        return this._element;
+    }
+
+    _setEventListeners = (openPic) => {
+        this._likeButton.addEventListener('click', (e) => {
+            this._handleLikeButtonClick(e);
         });
 
-        this._element.querySelector(".element__delete-button").addEventListener('click', (e) => {
+        this._deleteBtn.addEventListener('click', (e) => {
             this._handleDelete(e);
+        });
+
+        this._imageElement.addEventListener("click", () => {
+            openPic(this._text, this._image);
         });
     }
 
@@ -48,4 +45,3 @@ export class Card {
         e.target.closest(".element").remove();
     }
 }
-
