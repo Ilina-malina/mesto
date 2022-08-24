@@ -61,7 +61,6 @@ function showFieldError(input) {
 }
 
 function setSubmitButtonState(form, config) {
-  
   const button = form.querySelector(config.button);
   const isValid = form.checkValidity();
 
