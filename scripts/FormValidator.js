@@ -18,7 +18,7 @@ export class FormValidator {
       
         if (isValid) {
           clearForm();
-        }
+        } 
     }
 
     _handleFormInput(event) {
@@ -55,10 +55,16 @@ export class FormValidator {
         const span = input.nextElementSibling;
         span.textContent = input.validationMessage;
     }
+
+    _hideFieldError(input) {
+      const span = input.nextElementSibling;
+      span.textContent = '';
+      input.setCustomValidity("");
+  }
       
     setSubmitButtonState() {
         const isValid = this._formElement.checkValidity();
-      
+
         if (isValid) {
           this._button.removeAttribute("disabled");
           this._button.classList.remove(this._buttonDisabled);
@@ -71,4 +77,13 @@ export class FormValidator {
     clearForm() {
       this._formElement.reset();
     }
+
+    clearErrors = () => {
+      const inputs = Array.from(this._formElement.querySelectorAll('.popup__input'));
+      inputs.forEach((input) => {
+        this._hideFieldError(input);
+      })
+    
+      this.setSubmitButtonState();
+   }
 }
