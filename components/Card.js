@@ -1,9 +1,9 @@
 export class Card {
-    constructor(text, image, selector, openPic) {
+    constructor(text, image, selector, handleCardClick) {
         this._text = text;
         this._image = image;
         this._selector = selector;
-        this._openPic = openPic;
+        this._handleCardClick = handleCardClick;
         this._element = this._generateCard();
         this._imageElement = this._element.querySelector(".element__photo");
         this._textElement = this._element.querySelector(".element__title");
@@ -35,7 +35,7 @@ export class Card {
         });
 
         this._imageElement.addEventListener("click", () => {
-            this._openPic(this._text, this._image);
+            this._handleCardClick(this._text, this._image);
         });
     }
 
