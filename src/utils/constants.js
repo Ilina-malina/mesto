@@ -24,3 +24,17 @@ export const initialCards = [
       link: 'https://images.unsplash.com/photo-1477342620885-10e8a3790e30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     }
   ];
+
+  export const config = {
+    button: ".popup__submit-button",
+    buttonDisabled: "popup__submit-button_disadled",
+  };
+
+  export const popupProfileOpenButton = document.querySelector(".profile__edit-button");
+  export const formEditElement = document.querySelector(".popup_type_profile").querySelector(".popup__form");
+  export const nameInput = formEditElement.querySelector(".popup__input_type_name");
+  export const jobInput = formEditElement.querySelector(".popup__input_type_description");
+  export const profileName = ".profile__name";
+  export const profileDescription = ".profile__subscribe";
+  export const popupAddPlaceOpenButton = document.querySelector(".profile__add-button");
+  export const formAddElement = document.querySelector(".popup_type_place").querySelector(".popup__form");

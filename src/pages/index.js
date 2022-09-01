@@ -7,24 +7,9 @@ import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { UserInfo } from '../components/UserInfo.js';
 
-const config = {
-  button: ".popup__submit-button",
-  buttonDisabled: "popup__submit-button_disadled",
-};
-
-// Константы первого попапа
-const popupProfileOpenButton = document.querySelector(".profile__edit-button");
-const formEditElement = document.querySelector(".popup_type_profile").querySelector(".popup__form");
-const nameInput = formEditElement.querySelector(".popup__input_type_name");
-const jobInput = formEditElement.querySelector(
-  ".popup__input_type_description");
-const profileName = ".profile__name";
-const profileDescription = ".profile__subscribe";
-
-// Константы второго попапа
-const popupAddPlaceOpenButton = document.querySelector(".profile__add-button");
-const formAddElement = document.querySelector(".popup_type_place").querySelector(".popup__form");
-
+import {config, popupProfileOpenButton, formEditElement, 
+  nameInput, jobInput, profileName, profileDescription, 
+  popupAddPlaceOpenButton, formAddElement} from '../utils/constants.js';
 
 const popupShowPic = new PopupWithImage(".popup_type_show-picture");
 const popupProfile = new PopupWithForm(".popup_type_profile", editFormSubmitHandler);
