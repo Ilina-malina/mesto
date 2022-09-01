@@ -79,7 +79,6 @@ const profileFormValidator = new FormValidator(config, formEditElement);
 profileFormValidator.enableValidation();
 
 
-
   // Новый кусок, связaнный с классом Section
 function renderCard(cardData) {
   const card = new Card(cardData.name, cardData.link, "card", handleCardClick);
