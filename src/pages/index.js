@@ -1,5 +1,5 @@
 import './index.css';
-import { initialCards } from '../components/initialData.js';
+import { initialCards } from '../utils/constants.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js';
@@ -18,6 +18,8 @@ const formEditElement = document.querySelector(".popup_type_profile").querySelec
 const nameInput = formEditElement.querySelector(".popup__input_type_name");
 const jobInput = formEditElement.querySelector(
   ".popup__input_type_description");
+const profileName = ".profile__name";
+const profileDescription = ".profile__subscribe";
 
 // Константы второго попапа
 const popupAddPlaceOpenButton = document.querySelector(".profile__add-button");
@@ -30,8 +32,8 @@ popupProfile.setEventListeners();
 
 
 const userInfo = new UserInfo({
-  name: ".profile__name", 
-  descriptionSelector: ".profile__subscribe"});
+  name: profileName, 
+  descriptionSelector: profileDescription});
 
 
 // Открытие и закрытие первого попапа
@@ -81,15 +83,19 @@ profileFormValidator.enableValidation();
 
   // Новый кусок, связaнный с классом Section
 function renderCard(cardData) {
-  const card = new Card(cardData.name, cardData.link, "card", handleCardClick);
+  const card = createCard(cardData);
   const cardElement = card.getCard(cardData);
   section.addItem(cardElement);
+}
+function createCard(cardData) {
+  const card = new Card(cardData.name, cardData.link, "card", handleCardClick);
+  return card;
 }
 
 const handleCardClick = function (name, link) {
   popupShowPic.open(name, link);
-  popupShowPic.setEventListeners();
 };
+popupShowPic.setEventListeners();
 
 const section = new Section({
   items: initialCards,
