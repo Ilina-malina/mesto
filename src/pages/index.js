@@ -1,3 +1,4 @@
+import './index.css';
 import { initialCards } from '../components/initialData.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
@@ -13,15 +14,14 @@ const config = {
 
 // Константы первого попапа
 const popupProfileOpenButton = document.querySelector(".profile__edit-button");
-const formEditElement = document.querySelector(".popup__form");
+const formEditElement = document.querySelector(".popup_type_profile").querySelector(".popup__form");
 const nameInput = formEditElement.querySelector(".popup__input_type_name");
 const jobInput = formEditElement.querySelector(
   ".popup__input_type_description");
 
 // Константы второго попапа
 const popupAddPlaceOpenButton = document.querySelector(".profile__add-button");
-const formAddElement = document.querySelector(".popup__form");
-
+const formAddElement = document.querySelector(".popup_type_place").querySelector(".popup__form");
 
 
 const popupShowPic = new PopupWithImage(".popup_type_show-picture");
@@ -51,6 +51,10 @@ popupProfileOpenButton.addEventListener("click", function () {
 });
 
 // Открытие и закрытие второго попапа
+const addFormValidator = new FormValidator(config, formAddElement);
+addFormValidator.enableValidation();
+console.log(addFormValidator);
+
 popupAddPlaceOpenButton.addEventListener("click", function () {
   addFormValidator.clearErrors();
   addFormValidator.clearForm();
@@ -74,8 +78,7 @@ popupAddPlace.setEventListeners();
 const profileFormValidator = new FormValidator(config, formEditElement);
 profileFormValidator.enableValidation();
 
-const addFormValidator = new FormValidator(config, formAddElement);
-addFormValidator.enableValidation();
+
 
   // Новый кусок, связaнный с классом Section
 function renderCard(cardData) {
