@@ -20,7 +20,6 @@ const userInfo = new UserInfo({
   name: profileName, 
   descriptionSelector: profileDescription});
 
-
 // Открытие и закрытие первого попапа
 function editFormSubmitHandler(inputs) {
   userInfo.setUserInfo(inputs[0], inputs[1]);
@@ -64,7 +63,6 @@ popupAddPlace.setEventListeners();
 
 const profileFormValidator = new FormValidator(config, formEditElement);
 profileFormValidator.enableValidation();
-
 
   // Новый кусок, связaнный с классом Section
 function renderCard(cardData) {
