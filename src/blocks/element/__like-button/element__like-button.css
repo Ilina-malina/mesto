@@ -5,6 +5,8 @@
     background-repeat: no-repeat;
     width: 22px;
     height: 19px;
+    margin-bottom: 3px;
+    padding: 0;
     border: 0;
     cursor: pointer;
 }

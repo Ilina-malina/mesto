@@ -1,8 +1,11 @@
 .element__description {
     background-color: white;
-    padding: 25px 20px 31px 21px;
+    padding: 0;
     margin: 0;
+    padding-left: 21px;
+    padding-right: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-height: 70px;
 }

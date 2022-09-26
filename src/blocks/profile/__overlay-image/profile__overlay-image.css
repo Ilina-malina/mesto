@@ -1,0 +1,8 @@
+.profile__overlay-image {
+    background-image: url('../../../../src/images/edit-button.svg');
+    background-size: contain;
+    background-position: center;
+    align-self: center;
+    height: 26px;
+    width: 26px;
+}

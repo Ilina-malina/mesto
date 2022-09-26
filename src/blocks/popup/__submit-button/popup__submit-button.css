@@ -3,16 +3,16 @@
     height: 46px;
     background-color: black;
     color: white;
-    margin: 45px 0 25px;
+    margin: 45px 0 25px 36px;
     border: 0;
     font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    padding: 0;
     cursor: pointer;
     border-radius: 2px;
+    justify-self: center;
 }
 
 .popup__submit-button:hover {

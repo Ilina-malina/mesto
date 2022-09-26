@@ -11,7 +11,12 @@
   </header>
   <main class="main">
     <section class="profile">        
-      <img class="profile__image" src="<%=require('./images/Kusto.jpg')%>" alt="Фотография Жака-Ив Кусто">
+      <div class="profile__image">
+        <div class="profile__overlay">
+          <div class="profile__overlay-image">
+          </div>
+        </div>
+      </div>
       <div class="profile__info">
         <div class="profile__container">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -33,7 +38,10 @@
       <button class="element__delete-button" type="button" aria-label="Удалить"></button>
       <div class="element__description">
         <h2 class="element__title">Карачаевск</h2>
-        <button class="element__like-button" type="button" aria-label="Нравится"></button>
+        <div class="element__likes-container">
+          <button class="element__like-button" type="button" aria-label="Нравится"></button>
+          <p class="element__likes-amount">0</p>
+        </div>
       </div>
     </article>
   </template>
@@ -78,5 +86,28 @@
       <h2 class="popup__photo-title">Карачаевск</h2>
     </div>
   </div> 
+
+  <div class="popup popup_type_delete-confirmation">
+    <div class="popup__container">
+      <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <button class="popup__submit-button" type="submit" aria-label="Да">Подтвердить</button>
+    </div>
+  </div>
+
+  <div class="popup popup_type_avatar">
+    <div class="popup__container">
+      <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <form class="popup__form" name="avatar-form" novalidate>
+        <div class="popup__input-zone">
+          <input class="popup__input popup__input_type_link" required type="url" placeholder="Ссылка на картинку">
+          <span class="popup__error"></span> 
+        </div>
+        <button class="popup__submit-button" type="submit" aria-label="Сохранить">Сохранить</button>
+      </form>
+    </div>
+  </div> 
+
 </body>
 </html>
