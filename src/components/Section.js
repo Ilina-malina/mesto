@@ -7,4 +7,10 @@ export class Section {
     addItem(itemHtml) {
         this._container.prepend(itemHtml);
     }
+
+    renderItems(cards) {
+        cards.forEach((item) => {
+            this._renderer(item);
+        })
+    }
 }

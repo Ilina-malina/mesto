@@ -12,10 +12,10 @@ export class PopupWithSubmit extends Popup {
     }
 
     _proxyHandler = () => {
-        this._someHandler();
+        this._submitHandler();
     }
 
     setHandler(handler) {
-        this._someHandler = handler;
+        this._submitHandler = handler;
     }
 }

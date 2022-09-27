@@ -21,12 +21,18 @@ export class UserInfo {
     }
 
     _setUserInfo(name, description) {
-        this._name.textContent = name;
-        this._description.textContent = description;
+        if (name) {
+            this._name.textContent = name;
+        }
+        if (description) {
+            this._description.textContent = description;
+        }
     }
 
     _setUserAvatar(avatar) {
-        this._avatar.style.backgroundImage = `url(${avatar})`;
+        if (avatar) {
+            this._avatar.style.backgroundImage = `url(${avatar})`;
+        } 
     }
 }
 

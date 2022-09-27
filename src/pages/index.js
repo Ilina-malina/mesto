@@ -12,47 +12,38 @@ import {config, popupProfileOpenButton, formEditElement,
   popupAddPlaceOpenButton, formAddElement, formAvatarElement, profileAvatarElement} from '../utils/constants.js';
 import { PopupWithSubmit } from '../components/PopupWitnSubmit';
 
+const section = new Section(renderCard, ".elements");
 
-  const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-50',
+const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-50',
     headers: {
-      authorization: 'f0e9ad6e-8bb9-454b-8868-fba36d2de17c',
-      'Content-Type': 'application/json'
-    }
-  }); 
-function fetchCards() {
-  api.getInitialCards().then((res) => {
-    res.forEach((item) => {
-      renderCard(item);
-    });
+    authorization: 'f0e9ad6e-8bb9-454b-8868-fba36d2de17c',
+    'Content-Type': 'application/json'
+  }
+}); 
+
+function fetchData() {
+  Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(values => {
+  userInfo.setUser(values[0]);
+  values[1].reverse();
+  section.renderItems(values[1]);
   })
   .catch((err) => {
     console.log(err);
-  });
+  })
 }
-fetchCards();
+fetchData();
 
 const popupShowPic = new PopupWithImage(".popup_type_show-picture");
-
-
-
 
   const userInfo = new UserInfo({
     name: profileName, 
     descriptionSelector: profileDescription,
     avatar: profileAvatar});
 
-  api.getUserInfo().then((user) => {
-    userInfo.setUser(user);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-
 const popupProfile = new PopupWithForm(".popup_type_profile", editFormSubmitHandler);
 popupProfile.setEventListeners();
-
 
 // Открытие и закрытие первого попапа
 function editFormSubmitHandler(inputs) {
@@ -105,8 +96,6 @@ function changeAvatarHandler(avatar) {
   })
 }
 
-
-
 // Открытие и закрытие второго попапа
 const addFormValidator = new FormValidator(config, formAddElement);
 addFormValidator.enableValidation();
@@ -134,9 +123,7 @@ const addFormSubmitHandler = (inputs) => {
     console.log(err);
   }).finally(() => {
     popupAddPlace.renderLoading(false);
-    popupAddPlace.close();
   })
-  
 }
 
 const popupAddPlace = new PopupWithForm(".popup_type_place", addFormSubmitHandler);
@@ -145,7 +132,6 @@ popupAddPlace.setEventListeners();
 const profileFormValidator = new FormValidator(config, formEditElement);
 profileFormValidator.enableValidation();
 
-  // Новый кусок, связaнный с классом Section
 function renderCard(cardData) {
   const card = createCard(cardData);
   const cardElement = card.getCard(cardData);
@@ -194,8 +180,6 @@ const handleCardClick = function (name, link) {
 };
 popupShowPic.setEventListeners();
 
-const section = new Section(renderCard, ".elements");
-
 // Удаление карточки
 
 const deleteConfirmationPopup = new PopupWithSubmit(".popup_type_delete-confirmation");
@@ -211,11 +195,9 @@ function deleteCard(card) {
   api.deleteCard(card.getCardId())
   .then(() => {
     card.removeCard();
+    deleteConfirmationPopup.close();
   })
   .catch((err) => {
     console.log(err);
-  })
-  .finally(() => {
-    deleteConfirmationPopup.close();
   })
 }
