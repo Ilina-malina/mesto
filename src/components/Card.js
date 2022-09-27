@@ -15,11 +15,12 @@ export class Card {
         this._textElement = this._element.querySelector(".element__title");
         this._likesElement = this._element.querySelector(".element__likes-amount");
         this._likeButton = this._element.querySelector(".element__like-button");
-        this._deleteBtn = this._element.querySelector(".element__delete-button");  
+        this._deleteBtn = this._element.querySelector(".element__delete-button");
     }
 
     _generateCard = () => {
         this._element = document.getElementById(this._selector).content.querySelector('.element').cloneNode(true);
+        this._element.id = this._cardId;
 
         return this._element;
     }
@@ -40,13 +41,17 @@ export class Card {
         return this._element;
     }
 
+    removeCard() {
+        this._element.remove();
+    }
+
     _setEventListeners = () => {
         this._likeButton.addEventListener('click', () => {
             this._handleLikeButtonClick(this);
         });
 
         this._deleteBtn.addEventListener('click', () => {
-            this._handleDelete(this._cardId);
+            this._handleDelete(this);
         });
 
         this._imageElement.addEventListener("click", () => {

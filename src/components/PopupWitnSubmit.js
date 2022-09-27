@@ -6,9 +6,16 @@ export class PopupWithSubmit extends Popup {
         this._submitBtn = this._popup.querySelector('.popup__submit-button');
     }
 
-    setEventListeners(deleteCard) {
+    setEventListeners() {
         super.setEventListeners();
-        this._submitBtn.addEventListener('click', deleteCard);
+        this._submitBtn.addEventListener('click', this._proxyHandler);
     }
 
+    _proxyHandler = () => {
+        this._someHandler();
+    }
+
+    setHandler(handler) {
+        this._someHandler = handler;
+    }
 }

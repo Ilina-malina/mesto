@@ -134,6 +134,7 @@ const addFormSubmitHandler = (inputs) => {
     console.log(err);
   }).finally(() => {
     popupAddPlace.renderLoading(false);
+    popupAddPlace.close();
   })
   
 }
@@ -195,20 +196,26 @@ popupShowPic.setEventListeners();
 
 const section = new Section(renderCard, ".elements");
 
-const deleteConfirmationPopup = new PopupWithSubmit(".popup_type_delete-confirmation");
+// Удаление карточки
 
-function handleDelete(cardId) {
+const deleteConfirmationPopup = new PopupWithSubmit(".popup_type_delete-confirmation");
+deleteConfirmationPopup.setEventListeners();
+
+function handleDelete(card) {
+  const handler = () => deleteCard(card);
+  deleteConfirmationPopup.setHandler(handler);
   deleteConfirmationPopup.open();
-  deleteConfirmationPopup.setEventListeners(() => deleteCard(cardId));
 }
 
-function deleteCard(cardId) {
-  api.deleteCard(cardId)
+function deleteCard(card) {
+  api.deleteCard(card.getCardId())
   .then(() => {
-    deleteConfirmationPopup.close();
-    fetchCards();
+    card.removeCard();
   })
   .catch((err) => {
     console.log(err);
-  });
+  })
+  .finally(() => {
+    deleteConfirmationPopup.close();
+  })
 }

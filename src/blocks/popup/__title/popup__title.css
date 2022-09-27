@@ -6,7 +6,6 @@
     line-height: 22px;
     margin-top: 25px;
     margin-bottom: 75px;
-    margin-left: 22px;
 }
 
 @media screen and (min-width:768px) {
@@ -15,7 +14,6 @@
         line-height: 29px;
         margin-top: 34px;
         margin-bottom: 54px;
-        margin-left: 36px;
         text-align: left;
     }
 }
